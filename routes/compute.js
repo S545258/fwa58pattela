@@ -8,15 +8,16 @@ router.get('/', function(req, res, next) {
   const url = new URL(fake_url)
   const search_params = url.searchParams
   var input = Math.floor((Math.random() * 100) + 1)
-  var output = null
+  var output;
   if(search_params.get("x")){
     input = search_params.get("x")
   }
-   
+  output = Math.exp(input)  
   res.write(`Math.abs() applied to ${input} is ${output}`);
   res.write(`Math.acos() applied to ${input} is ${output}`);
   res.write(`Math.sin() applied to ${input} is ${output}`);
   res.write(`Math.sinh() applied to ${input} is ${output}`);
+  res.send();
 });
 
 module.exports = router;
